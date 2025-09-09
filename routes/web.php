@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
 // Public homepage → show products (instead of login)
@@ -9,7 +10,7 @@ Route::get('/', [ProductController::class, 'index'])->name('home');
 
 // Publicly accessible products (list + details)
 Route::resource('product', ProductController::class);
-
+route::resource('form', FormController::class);
 // Protected routes (need login)
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
